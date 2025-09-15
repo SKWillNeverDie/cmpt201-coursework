@@ -1,0 +1,12 @@
+{"version": 2, "width": 120, "height": 30, "timestamp": 1757889776, "idle_time_limit": 5.0, "env": {"SHELL": "/usr/bin/zsh", "TERM": "xterm-256color"}}
+[0.153102, "o", "\u001b[1m\u001b[7m%\u001b[27m\u001b[1m\u001b[0m                                                                                                                       \r \r"]
+[0.154304, "o", "\u001b]2;cmpt201@6f0c6eda0552:~\u0007\u001b]1;~\u0007"]
+[0.157621, "o", "\u001b]7;file://6f0c6eda0552/home/cmpt201\u001b\\"]
+[0.18423, "o", "\r\u001b[0m\u001b[27m\u001b[24m\u001b[J\u001b[35m[recording] \u001b[34m~\u001b[32m❯\u001b[39m \u001b[K\u001b[?1h\u001b=\u001b[?2004h"]
+[59.819609, "i", "m"]
+[59.847297, "o", "m"]
+[59.852388, "o", "\b\u001b[1m\u001b[31mm\u001b[0m\u001b[39m"]
+[59.852776, "o", "\b\u001b[1m\u001b[31mm\u001b[0m\u001b[39m\u001b[92man gitline()\u001b[39m\r\r\n\u001b[K\r\r\n\u001b[92mcd ..\u001b[39m\u001b[K\u001b[A\u001b[A\u001b[11C"]
+[59.956347, "i", "a"]
+[59.958245, "o", "\b\u001b[1m\u001b[31mm\u001b[1m\u001b[31ma\u001b[0m\u001b[39m"]
+[60.041167, "i", "n"]
