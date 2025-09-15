@@ -1,4 +1,4 @@
-#define _POSIX_C_SOURCE 200809L
+#define _POSTIX_C_SOURCE 200809L
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -6,7 +6,8 @@
 int main(void) {
   char *buff = NULL;
   size_t size = 0;
-  printf("Please enter some text: ");
+  size_t num_char;
+  printf("Please enter some text:");
 
   ssize_t num_char = getline(&buff, &size, stdin);
   if (num_char == -1) {
@@ -14,16 +15,26 @@ int main(void) {
     free(buff);
     exit(EXIT_FAILURE);
   }
-  if (num_char > 0 && buff[num_char - 1] == '\n') {
-    buff[num_char - 1] = '\0';
-  }
-  printf("Tokens:\n");
   char *saveptr;
   char *portion = strtok_r(buff, " ", &saveptr);
   while (portion != NULL) {
     printf("%s\n", portion);
     portion = strtok_r(NULL, " ", &saveptr);
   }
+
+  /*
+  char *portion1 = strtok(s, d);
+  printf("%s\n", portion1);
+
+  char *portion2 = strtok(NULL, d);
+  printf("%s\n", portion2);
+
+  char *portion3 = strtok(NULL, d);
+  printf("%s\n", portion3);
+
+  char *portion4 = strtok(NULL, d);
+  printf("%s\n", portion4);
+  */
   free(buff);
   return 0;
 }

@@ -14,10 +14,9 @@ int main(void) {
     free(buff);
     exit(EXIT_FAILURE);
   }
-  if (num_char > 0 && buff[num_char - 1] == '\n') {
-    buff[num_char - 1] = '\0';
+  if(num_char>0 && buff[num_char-1]=='\n'){
+    buff[num_char-1]='\0';
   }
-  printf("Tokens:\n");
   char *saveptr;
   char *portion = strtok_r(buff, " ", &saveptr);
   while (portion != NULL) {
