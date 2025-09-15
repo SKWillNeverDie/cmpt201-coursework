@@ -1,0 +1,43 @@
+#define _GNU_SOURCE
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main(void) {
+  char *line=NULL;
+  size_t len=0;
+  ssize_t nread;
+
+  
+  printf("Please enter some text:");
+
+  nread=getline(&line, &len, stdin);
+  if(nread==-1){
+    perror("getline failed");
+    exit(EXIT_FAILURE);
+
+
+
+  char d[] = " ";
+  char *portion = strtok(line, " ");
+  while (portion != NULL) {
+    printf("%s\n", portion);
+    portion = strtok(NULL, d);
+  }
+
+  /*
+  char *portion1 = strtok(s, d);
+  printf("%s\n", portion1);
+
+  char *portion2 = strtok(NULL, d);
+  printf("%s\n", portion2);
+
+  char *portion3 = strtok(NULL, d);
+  printf("%s\n", portion3);
+
+  char *portion4 = strtok(NULL, d);
+  printf("%s\n", portion4);
+  */
+  free(line);
+  return 0;
+}

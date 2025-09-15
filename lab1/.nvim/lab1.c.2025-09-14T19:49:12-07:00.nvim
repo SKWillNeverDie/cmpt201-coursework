@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main(void) {
+  char s[]="Tomorrow is Friday.";
+  char d[]=" ";
+
+  char *portion1 = strtok(s, d);
+  printf("%s\n", portion1);
+
+
+
+
+  printf("Please enter some text:");
+  return 0;
+}
