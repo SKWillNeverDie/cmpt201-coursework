@@ -1,0 +1,2 @@
+ls: cannot access 'nonexistent.txt': No such file or directory
+testfile.txt

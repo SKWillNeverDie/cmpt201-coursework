@@ -1,0 +1,10 @@
+#include <stdio.h>
+#include <unistd.h> // for sleep()
+
+int main(void) {
+  while (1) {
+    printf("Going to sleep for 2 seconds...\n");
+    sleep(2); // sleep for 2 seconds
+  }
+  return 0;
+}

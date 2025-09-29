@@ -1,0 +1,44 @@
+#define _POSIX_C_SOURCE 200809L
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <sys/wait.h>
+#include <unistd.h>
+
+int main() {
+  while (1) {
+    printf("Enter path:\n ");
+
+    char *buff = NULL;
+    size_t size = 0;
+
+    if (getline(&buff, &size, stdin) == -1L) {
+      printf("Getline failed\n");
+      free(buff);
+      break;
+    }
+
+    size_t len = strlen(buff);
+    if (len > 0 && buff[len - 1] == '\n') {
+      buff[len - 1] = '\0';
+    }
+
+    pid_t pid = fork();
+    if (pid < 0) {
+      perror("fork failed");
+      free(buff);
+      exit(1);
+    }
+
+    if (pid == 0) {
+      execl(buff, buff, (char *)NULL);
+      perror("Exec failure");
+      exit(1);
+    } else {
+      int status;
+      waitpid(pid, &status, 0);
+    }
+    free(buff);
+  }
+  return 0;
+}

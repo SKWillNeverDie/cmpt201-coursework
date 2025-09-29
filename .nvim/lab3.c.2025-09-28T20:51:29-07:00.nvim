@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <string.h>
+
+int main(){
+  char *history[5];
+  size_t len=0;
+  int count=0;
+
+  while (count<5){
+    printf("Enter input: ");
+    history[count]=NULL;
+    getline(&history[count], &len, stdin);
+
+    if(strcmp(history[count], "print\n")==0){
+      for(int i=0; i<=count; i++){
+        printf("%s", history[i]);
+      }
+    }
+    count ++;
+  }
+  return 0;
+}
