@@ -32,20 +32,17 @@ int main() {
   printf("second block next: %p\n", (void *)block2->next);
   size_t data_size1 = block1->size - sizeof(struct header);
   size_t data_size2 = block2->size - sizeof(struct header);
-  printf("Block 1 data: ");
+
   for (size_t i = 0; i < data_size1; i++) {
     printf("%d\n", data1[i]);
     if (i == 15) {
-      printf("...  # Many 0's omitted\n");
       break;
     }
   }
 
-  printf("Block 2 data: ");
   for (size_t i = 0; i < data_size2; i++) {
     printf("%d\n", data2[i]);
     if (i == 15) {
-      printf("...  # Many 1's omitted\n");
       break;
     }
   }
