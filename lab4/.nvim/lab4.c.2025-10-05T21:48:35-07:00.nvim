@@ -1,0 +1,21 @@
+#define _GNU_SOURCE
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+struct header {
+  uint64_t size;
+  struct header *next;
+};
+
+int main() {
+  int *block_start = sbrk(256);
+  struct header *block1 = (struct header *)block_start;
+  struct header *block2 = (struct header *)block_start + 128;
+  printf("first block: %p\n", block1);
+  printf("second blocK: %p\n", block2);
+  printf("first block size: %zu\n", sizeof(block1));
+  //pritnf("second block size: %d\n", block2);
+  return 0;
+}

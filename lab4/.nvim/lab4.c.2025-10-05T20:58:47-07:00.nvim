@@ -1,0 +1,7 @@
+#define _GNU_SOURCE
+#include <unistd.h>
+
+int main(){
+  sbrk(256);
+  return 0;
+}

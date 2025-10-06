@@ -1,0 +1,17 @@
+#define _GNU_SOURCE
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+struct header {
+  uint64_t size;
+  struct header *next;
+};
+
+int main() {
+  int *heap_ptr = calloc(1, sizeof(int));
+  printf("first block: %p\n", &heap_ptr);
+  printf("block value: %zu\n", sizeof(heap_ptr));
+  return 0;
+}

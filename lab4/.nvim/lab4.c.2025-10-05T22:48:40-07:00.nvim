@@ -1,0 +1,54 @@
+#define _GNU_SOURCE
+#include <stdint.h>
+#include <stdio.h>
+#include <string.h>
+#include <unistd.h>
+struct header {
+  uint64_t size;
+  struct header *next;
+};
+
+int main() {
+  void *block_start = sbrk(256);
+
+  struct header *block1 = (struct header *)block_start;
+  struct header *block2 = (struct header *)((char *)block_start + 128);
+
+  block1->size = 128;
+  block1->next = NULL;
+
+  block2->size = 128;
+  block2->next = block1;
+  char *data1 = (char *)(block1 + 1);
+  memset(data1, 0, block1->size - sizeof(struct header));
+
+  char *data2 = (char *)(block2 + 1);
+  memset(data2, 1, block2->size - sizeof(struct header));
+  printf("first block: %p\n", (void *)block1);
+  printf("second block: %p\n", (void *)block2);
+  printf("first block size: %lu\n", block1->size);
+  printf("first block next: %p\n", (void *)block1->next);
+  printf("second block size: %lu\n", block2->size);
+  printf("second block next: %p\n", (void *)block2->next);
+  size_t data_size1 = block1->size - sizeof(struct header);
+  size_t data_size2 = block2->size - sizeof(struct header);
+  printf("Block 1 data: ");
+  for (size_t i = 0; i < data_size1; i++) {
+    printf("%d\n", data1[i]);
+    if (i == 15) { // print only first 16 values
+      printf("...  # Many 0's omitted\n");
+      break;
+    }
+  }
+
+  printf("Block 2 data: ");
+  for (size_t i = 0; i < data_size2; i++) {
+    printf("%d\n", data2[i]);
+    if (i == 15) { // print only first 16 values
+      printf("...  # Many 1's omitted\n");
+      break;
+    }
+  }
+
+  return 0;
+}
