@@ -1,3 +1,4 @@
+// example_1.c
 #include <stdbool.h>
 #include <stdint.h>
 #include <stdio.h>
@@ -78,6 +79,7 @@ int main() {
   return 0;
 }
 
+// example_2.c
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
